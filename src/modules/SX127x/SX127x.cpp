@@ -817,9 +817,9 @@ int16_t SX127x::setBitRateCommon(float br, uint8_t fracRegAddr) {
 
 int16_t SX127x::setFrequencyDeviation(float freqDev) {
   // check active modem
-  // if(getActiveModem() != RADIOLIB_SX127X_FSK_OOK) {
-  //   return(RADIOLIB_ERR_WRONG_MODEM);
-  // }
+  if(getActiveModem() != RADIOLIB_SX127X_FSK_OOK) {
+    return(RADIOLIB_ERR_WRONG_MODEM);
+  }
 
   // set frequency deviation to lowest available setting (required for digimodes)
   float newFreqDev = freqDev;
